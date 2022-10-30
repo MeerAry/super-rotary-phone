@@ -1,0 +1,29 @@
+def bisection(func, a , b, error_accept):
+  def f(x):
+    f=eval(func)
+    return f
+
+  error  = abs (b-a)
+
+  while error > error_accept:
+    c = (b+a) / 2
+    if f(a) * f(b) >= 0:
+       print("no root")
+       quit()
+
+    elif f(c) * f(a) < 0:
+      b = c
+      error = abs(b-a)
+
+    elif f(c) * f(b) < 0:
+      a = c
+      error = abs(b-a)
+
+    else:
+      print("something wrong")
+      quit()
+
+
+  print(f"the error is {error} ")
+
+bisection("(3*x**3)- 2" , -2, 1, 0.05)
